@@ -1,0 +1,12 @@
+Part 1:
+1. Open ollydbg and load in CRACKME.exe
+2. Find code that loads the dialogues based on successful / failed string comparison
+3. Replace all cases of "No Luck!" with "Good work!"
+4. Replace all cases of "No luck there, mate" with "Great work, mate! Now try the next CrackMe"
+  - This is done by changing what memory address is pushed to the registers that originally contain the error strings.
+5. After exporting the file to CRACKMEQ1.EXE, all dialogues will print
+
+Good work!
+Now try the next CrackMe
+
+Part 2:
