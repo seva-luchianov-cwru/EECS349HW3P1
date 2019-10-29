@@ -10,3 +10,30 @@ Good work!
 Now try the next CrackMe
 
 Part 2:
+On line 00401228, we store the name
+On line 00401233, we store the serial number
+To generate a serial number for the name, we do the following:
+1.	0040122D invokes toUpperCase on username and then jumps to 0040132C
+2.	0040132C sums the ASCII integer values of the now uppercase name
+3.	004013A2 executes an XOR against the sum of the uppercase name ASCII and 5678.
+4.	After this is finished, the EAX register will contain 
+5.	004013E2 takes the entered serial number and sums the decimal values of each index of the number (multiplied by 10) with each other.
+6.	004013F5 does an XOR of the result of the above function and 1234
+7.	00401241 does the comparison of EAX and EBX, where EAX contains the result of the operations done on the username and EBX contains the result of the operations done on the serial number
+
+So for the input user “seva”:
+Username operations:
+1.	Start
+“seva”
+2.	toUpperCase
+“seva” -> “SEVA”
+3.	Sum ASCII
+83+69+86+66 = 303
+4.	Convert to HEX
+303 -> 012F
+5.	xor with 5678
+012F xor 5678 = 5757
+6.	xor with 1234
+5757 xor 1234 = 4563
+7.	Convert to Decimal
+4563 -> 17763
